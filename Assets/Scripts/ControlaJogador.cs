@@ -33,5 +33,12 @@ public class ControlaJogador : MonoBehaviour
     void FixedUpdate()
     {
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + (direcao * Velocidade * Time.deltaTime));
+
+        if (direcao != Vector3.zero)
+        {
+            Quaternion novaRotacao = Quaternion.LookRotation(direcao);
+            GetComponent<Rigidbody>().MoveRotation(novaRotacao);
+        }
+        
     }
 }
