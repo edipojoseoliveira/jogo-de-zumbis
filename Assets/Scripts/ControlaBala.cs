@@ -13,4 +13,14 @@ public class ControlaBala : MonoBehaviour
             (GetComponent<Rigidbody>().position + 
             transform.forward * Velocidade * Time.deltaTime);
     }
+
+    void OnTriggerEnter(Collider objetoDeColisao)
+    {
+        if (objetoDeColisao.tag == "Inimigo")
+        {
+            Destroy(objetoDeColisao.gameObject);
+        }
+
+        Destroy(gameObject);
+    }
 }
